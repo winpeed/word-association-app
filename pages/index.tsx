@@ -15,9 +15,10 @@ const Home: NextPage = () => {
   const [quizList, setQuizList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [number, setNumber] = useState(0);
-  const [isCorrect, setIsCorrect] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const [score, setScore] = useState(0);
+  const [color, setColor] = useState("#ecf0f1");
 
   const handleNext = () => {
     setNumber((prev) => prev + 1);
@@ -30,8 +31,10 @@ const Home: NextPage = () => {
     if (correctNumber == index + 1) {
       setIsCorrect(true);
       setScore((prev) => prev + 1);
+      setColor("green");
     } else if (correctNumber !== index + 1) {
       setIsCorrect(false);
+      setColor("red");
     }
   };
 
@@ -130,14 +133,6 @@ const Home: NextPage = () => {
                       onClick={() =>
                         handleAnswer(index, quizList[number].correct)
                       }
-                      style={{
-                        background:
-                          isCorrect == true
-                            ? "green"
-                            : isCorrect == false
-                            ? "red"
-                            : "#ecf0f1",
-                      }}
                     >
                       {item}
                     </span>
