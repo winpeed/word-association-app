@@ -107,4 +107,8 @@
   right: 0;
   padding: 0.8em;
   color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
 }/*# sourceMappingURL=Home.module.css.map */
